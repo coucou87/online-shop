@@ -61,7 +61,7 @@ export default function SideDrawer({ totalprice, closeHandle, selectedItems }) {
                     title={item.title}
                     price={item.price}
                     number={item.number}
-                // totalprice={item.price*item.number} 
+               
                 />
             )
             )}
