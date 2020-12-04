@@ -1,7 +1,8 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { BiChevronDown } from 'react-icons/bi'
 import { BiChevronUp } from 'react-icons/bi'
 import styled from 'styled-components'
+
 
 const Wrapper = styled.div`
     display:block;
@@ -24,30 +25,38 @@ const Photo = styled.img`
 `
 
 export default function SelectedItems({ image, title, price, number, selectedItems }) {
-    // function handleInc() {
-    //     number++
-    // }
-    // function handleDec(id) {
-    //     if (number = 1) {
-    //         selectedItems.filter(item => item.id !== id)
-    //     }
-    //     number--
-    // }
-    // function handleRemove(id) {
-    //     selectedItems.filter(item => item.id !== id)
-    // } 
+
+    const [num,setNum] = useState(number);
+
+
+    function handleInc() {
+        console.log(num)
+        setNum(num+1)
+    }
+    function handleDec(id) {
+        if (num === 0) {
+            handleRemove(id);
+        }
+        setNum(num-1)
+    }
+    function handleRemove(id) {
+        console.log(id)
+        // console.log(selectedItems)
+        // selectedItems.filter(item => item.id !== id)
+    }
 
     // Teest shavad!!
     
     return (
         <Wrapper>
-            <Photo>{image}</Photo>
+            {/*<img src={image}/>*/}
+            <Photo src={image} />
             <Title>{title}</Title>
             <Price>{price}</Price>
             <Remove onclick={handleRemove}>Remove</Remove>
             <Count>
                 <UpIcon onClick={handleInc}><BiChevronUp /></UpIcon>
-                {number}
+                {num}
                 <DownIcon onClick={handleDec}><BiChevronDown /></DownIcon>
             </Count>
         </Wrapper>

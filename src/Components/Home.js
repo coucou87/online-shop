@@ -10,13 +10,10 @@ export default function Home({ products }) {
 
   function addHandlerClick(id) {
     const copyProducts = [...products]
-    const findItem = copyProducts.filter(item => item.id === id)
-    
+    const findItem = copyProducts.filter(product => product.id === id)
     const copyItem = [...item]
-    copyItem.push(findItem)
+    copyItem.push(findItem[0])
     setItem(copyItem)
-    console.log(findItem)
-    // console.log(copyItem)
   }
   function toggleShowHandler(){
     setShow(!show)
