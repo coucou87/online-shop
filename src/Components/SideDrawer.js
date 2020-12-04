@@ -45,7 +45,7 @@ const Button = styled.button`
     width:50%;
     padding:15px 30px;
 `
-export default function SideDrawer({ totalprice, closeHandle, selectedItems }) {
+export default function SideDrawer({ totalPrice, closeHandle, selectedItems }) {
 
     return (
         <Wrapper>
@@ -61,13 +61,13 @@ export default function SideDrawer({ totalprice, closeHandle, selectedItems }) {
                     title={item.title}
                     price={item.price}
                     number={item.number}
-               
+
                 />
             )
             )}
 
             <MinWrapper>
-                <Text>Your Total:{totalprice}</Text>
+                <Text>Your Total:{totalPrice}</Text>
                 <Button>CLEAR CART</Button>
             </MinWrapper>
 
