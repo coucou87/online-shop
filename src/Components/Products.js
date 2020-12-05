@@ -1,15 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Product from './Product'
-import Details from './Details'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams
-} from "react-router-dom";
 
 const Wrapper = styled.div`
   display:grid;
@@ -25,8 +16,13 @@ const Title = styled.h1`
   justify-content:center;
   color:#333333;
 `
-export default function Products({ products, addClickHandle }) {
-    let match = useRouteMatch();
+export default function Products(
+    {
+        products,
+        addClickHandle
+    }
+) {
+
     return (
         <div>
             <Title>OUR PRODUCTS</Title>
@@ -34,7 +30,7 @@ export default function Products({ products, addClickHandle }) {
                 {products.map(item => {
                     return (
                         <Product
-                            addClick={()=>addClickHandle(item.id)}
+                            addClick={() => addClickHandle(item.id)}
                             key={item.id}
                             title={item.title}
                             photo={item.src}
@@ -42,9 +38,9 @@ export default function Products({ products, addClickHandle }) {
                             number={item.number}
                         />
                     )
-                    }
+                }
                 )}
-            </Wrapper> 
+            </Wrapper>
         </div >
     )
 }

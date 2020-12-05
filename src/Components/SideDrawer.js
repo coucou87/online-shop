@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { AiFillCloseSquare } from 'react-icons/ai'
-import SelectedItems from './SelectedItems'
-
+import SelectedItem from './SelectedItem'
 
 const Wrapper = styled.div`
     width:30%;
@@ -14,7 +13,8 @@ const Wrapper = styled.div`
     background-color:rgb(231, 226, 221);
     right:0;
     top:0;
-      transition: all ease-out 0s;
+    overflow-y:auto;
+    transition: all ease-out 0s;
 
     /* .open{
         transform: translateX(0)
@@ -31,7 +31,6 @@ display:flex;
    justify-content:center;
 `
 const Div = styled.div``
-
 const MinWrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -45,33 +44,41 @@ const Button = styled.button`
     width:50%;
     padding:15px 30px;
 `
-export default function SideDrawer({ totalPrice, closeHandle, selectedItems }) {
-
+export default function SideDrawer(
+    {
+        totalPriceHandler,
+        closeHandle,
+        selectedItems,
+        handleRemove,
+        handleIncrease,
+        handleDecrease
+}
+) 
+  {
     return (
         <Wrapper>
             <Div>
                 <CloseIcon> <AiFillCloseSquare onClick={closeHandle} /> </CloseIcon>
                 <MainTitle>YOUR CART</MainTitle>
             </Div>
-
-            {  selectedItems.map(item => (
-                <SelectedItems
+            { selectedItems.map(item => (
+                <SelectedItem
                     key={item.id}
+                    id={item.id}
                     image={item.src}
                     title={item.title}
                     price={item.price}
                     number={item.number}
-
+                    onClick={() => handleRemove(item.id)}
+                    handleInc={() => handleIncrease(item.id)}
+                    handleDec={() => handleDecrease(item.id)}
                 />
             )
             )}
-
             <MinWrapper>
-                <Text>Your Total:{totalPrice}</Text>
+                <Text>Your Total:{totalPriceHandler}</Text>
                 <Button>CLEAR CART</Button>
             </MinWrapper>
-
         </Wrapper>
-
     )
 }

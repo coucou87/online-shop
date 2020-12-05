@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -17,7 +17,6 @@ const Photo = styled.img`
         opacity:0.3;  
   }
 `
-
 const Innericon = styled.button`
     border:none;
     background-color:#ff8533;
@@ -30,7 +29,6 @@ const Innericon = styled.button`
     left:-26px;
     transform: translateX(101%);
     cursor: pointer;
-   
    position:absolute;
      opacity:0;
     transition: all ease-out 0.4s;
@@ -44,42 +42,50 @@ const Card = styled.div`
     z-index:20;
     position:relative;
 `
-const Div =styled.div`
+const Div = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
 `
 const Title = styled.h3`
-margin:0;
-padding:0;
+    margin:0;
+    padding:0;
 `
 const Price = styled.span`
     font-size:1.03em;
     font-weight:bold;
 `
-export default function Product({photo, title, price, handleClick, addClick}) {
+export default function Product({
+    photo,
+    title,
+    price,
+    handleClick,
+    addClick
+}
+) {
     const [show, setShow] = useState(false)
-    function handlerMouse(){
+    function handlerMouse() {
         setShow(true)
     }
     return (
         <>
             <Wrapper>
                 <Card>
-                    <Photo src={photo} onMouseOver={handlerMouse} onClick={handleClick}/>
-                    {show && 
+                    <Photo
+                        src={photo}
+                        onMouseOver={handlerMouse}
+                        onClick={handleClick}
+                    />
+                    {show &&
                         <Innericon onClick={addClick}>
-                          <FaShoppingCart/> ADD TO CART <FaShoppingCart />
+                            <FaShoppingCart /> ADD TO CART <FaShoppingCart />
                         </Innericon>
                     }
-                       </Card>
-                    <Div>
-                       <Title>{title}</Title>
-                       <Price>{price}</Price>
-                    </Div>
-                    
-             
-               
+                </Card>
+                <Div>
+                    <Title>{title}</Title>
+                    <Price>{price}</Price>
+                </Div>
             </Wrapper>
         </>
     )

@@ -11,12 +11,12 @@ export default function Details ({image, title,price}){
     let { topicId } = useParams();
     return(
         <>
-        <h3>Requested topic ID: {topicId}</h3>;
-        <Wrapper>
-            <Photo src={image}></Photo>
-            <Detail>{title}</Detail>
-            <Price>{price}</Price>
-        </Wrapper>
+            <h3>Requested topic ID: {topicId}</h3>;
+            <Wrapper>
+                <Photo src={image}></Photo>
+                <Detail>{title}</Detail>
+                <Price>{price}</Price>
+            </Wrapper>
         </>
     )
 }

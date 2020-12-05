@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 const Wrapper = styled.div`
   background-image: url("./DATA/IMAGES/hero-bcg.jpeg");
   background-position: center;
@@ -13,13 +12,11 @@ const Wrapper = styled.div`
   overflow-x:hidden;
   position:relative;
   justify-content:center;
-    align-items: center;
- 
-
+  align-items: center;
 `
 const Banner = styled.div`
   background: rgba(255, 255, 255, 0.8);
- padding:1.5em;
+  padding:1.5em;
   position: absolute;
   text-align:center;
   justify-content:center;
@@ -32,9 +29,8 @@ const Text = styled.h1`
     box-sizing: border-box;
     text-align: center; 
     padding-top:0;
-   color:#333333; 
+    color:#333333; 
 `
-
 const Button = styled.button`
     padding: 1rem 3rem;
     text-transform: uppercase;
@@ -49,7 +45,7 @@ export default function Header() {
             <Wrapper>
                     <Banner>
                         <Text>FURNITURE COLLECTION</Text>
-                       <Button>SHOP NOW</Button>
+                        <Button>SHOP NOW</Button>
                     </Banner>
             </Wrapper>
         </>
