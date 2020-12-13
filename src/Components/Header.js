@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  background-image: url("./DATA/IMAGES/hero-bcg.jpeg");
+  background-image: url("../DATA/IMAGES/hero-bcg.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

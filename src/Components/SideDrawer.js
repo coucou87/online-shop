@@ -51,7 +51,8 @@ export default function SideDrawer(
         selectedItems,
         handleRemove,
         handleIncrease,
-        handleDecrease
+        handleDecrease,
+        handleClear
 }
 ) 
   {
@@ -77,7 +78,7 @@ export default function SideDrawer(
             )}
             <MinWrapper>
                 <Text>Your Total:{totalPriceHandler}</Text>
-                <Button>CLEAR CART</Button>
+                <Button onClick={handleClear}>CLEAR CART</Button>
             </MinWrapper>
         </Wrapper>
     )

@@ -17,7 +17,7 @@ const Photo = styled.img`
         opacity:0.3;  
   }
 `
-const Innericon = styled.button`
+const InnerIcon = styled.button`
     border:none;
     background-color:#ff8533;
     padding:10px 20px;
@@ -59,27 +59,28 @@ export default function Product({
     photo,
     title,
     price,
-    handleClick,
-    addClick
+    addClick   
 }
 ) {
     const [show, setShow] = useState(false)
     function handlerMouse() {
         setShow(true)
     }
+    function handleOnClick(e){
+        e.preventDefault()
+        addClick()
+    }
     return (
-        <>
             <Wrapper>
                 <Card>
                     <Photo
                         src={photo}
                         onMouseOver={handlerMouse}
-                        onClick={handleClick}
                     />
                     {show &&
-                        <Innericon onClick={addClick}>
+                        <InnerIcon onClick={(e)=>handleOnClick(e)}>
                             <FaShoppingCart /> ADD TO CART <FaShoppingCart />
-                        </Innericon>
+                        </InnerIcon>
                     }
                 </Card>
                 <Div>
@@ -87,6 +88,5 @@ export default function Product({
                     <Price>{price}</Price>
                 </Div>
             </Wrapper>
-        </>
     )
 }
